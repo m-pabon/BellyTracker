@@ -1,9 +1,6 @@
-.navbar-brand{
-    font-size:1.8em;
-}
-#topContainer{
-    background-image: url("background.jpg");
-    height: 600px;
+#home{
+    background-image: url("/Users/michael/Documents/SeniorProject/src/assets/background.jpg");
+    height: 400px;
     width: 100%;
     background-size:cover;
 }
@@ -15,9 +12,6 @@
     font-size: 300%;
     color: white;
 }
-.bold{
-    font-weight: bold;
-}
 .marginTop{
     margin-top: 30px;
 }
@@ -28,16 +22,8 @@
     margin-top: 100px;
     font-size: 300%;
 }
-#footer{
-    background-color: lightblue;
-    width:100%;
-    padding-top:70px;
-}
 .marginBottom{
     margin-bottom: 30px;
-}
-.appStoreImage{
-    width:250px;
 }
 .pwhite{
     color: white;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,22 @@
     <!--Stylesheet-->
     <link rel="stylesheet" type="text/css" href="/Users/michael/Documents/SeniorProject/src/css/insights.css">
     <link rel="stylesheet" type="text/css" href="/Users/michael/Documents/SeniorProject/src/css/global.css">
+
+    <!--Charts.js CDN--->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+    <!--jQuery UI Assets-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $("#datepicker").datepicker();
+        });
+
+    </script>
+
 </head>
+
 <body>
     <!--Navigation-->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,16 +51,41 @@
                     <li><a href="insights.html">Insights</a></li>
                 </ul>
                 <!--User Options-->
-                 <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="settings.html">Settings</a></li>
-                      <li><a href="#">Log Out</a></li>
-                    </ul>
-                  </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
-      </nav>
+    </nav>
+    <!--Datepicker-->
+    <div class="row insights-margins">
+        <div class="col-sm-12 date">
+            <form>
+                <div class="input-group" style="padding-top: 10px;">
+                    <span id="calendar" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                    <input id="datepicker" style="cursor: pointer;" type="text" class="form-control">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--Charts-->
+    <div class="row">
+        <div class="col-sm-4">
+            <canvas id="myChart1" width="400" height="400"></canvas>
+        </div>
+        <div class="col-sm-4">
+            <canvas id="myChart2" width="400" height="400"></canvas>
+        </div>
+        <div class="col-sm-4">
+            <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+    </div>
 </body>
+<script src="/Users/michael/Documents/SeniorProject/src/js/insights.js"></script>
+
 </html>

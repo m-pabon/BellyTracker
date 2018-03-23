@@ -164,10 +164,10 @@
             $scope.addEntry = function(){
                 if($scope.entryDescription != null && $scope.entryAmount != null && $scope.entryUnit != null && $scope.entryCalories != null){
                     $scope.enteries.unshift({
-                        description: 'Banana',
-                        amount: 1,
-                        unit: 'Medium Banana',
-                        calories: 200
+                        description: $scope.entryDescription,
+                        amount: $scope.entryAmount,
+                        unit: $scope.entryUnit,
+                        calories: $scope.entryCalories
                     })
                 }
                 $scope.entryDescription = null;

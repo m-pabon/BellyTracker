@@ -30,7 +30,7 @@
 
 </head>
 
-<body>
+<body ng-app='app'>
     <!--Navigation-->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -62,7 +62,7 @@
         </div>
     </nav>
     <!--Diary-->
-    <div class="row diary-margins">
+    <div ng-controller='DiaryCtrl' class="row diary-margins">
         <!--Diary Controls-->
         <div class="col-md-2">
             <form>
@@ -74,7 +74,7 @@
             <button type="button" class="btn btn-default button-margins" data-toggle="modal" data-target="#addFoodModal">Add Food</button>
         </div>
         <!--Diary Data-->
-        <div class="col-md-10">
+        <div class="col-md-10 container">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -86,30 +86,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Chicken Breast</td>
-                            <td>268</td>
-                            <td>g</td>
-                            <td>463.64</td>
-                        </tr>
-                        <tr>
-                            <td>Riced Broccoli</td>
-                            <td>5</td>
-                            <td>cup</td>
-                            <td>175</td>
-                        </tr>
-                        <tr>
-                            <td>HoneyCrisp Apples</td>
-                            <td>1</td>
-                            <td>Medium Apple</td>
-                            <td>80</td>
+                        <tr ng-repeat='entry in enteries'>
+                            <td>{{ entry.description }}</td>
+                            <td> {{ entry.amount }}</td>
+                            <td> {{ entry.unit }}</td>
+                            <td> {{ entry.calories }}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
         <!--Add Food Modal-->
-        <div class="modal fade" id="addFoodModal" role="dialog">
+        <div class="modal fade" ng-model='modal'id="addFoodModal" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -118,33 +106,77 @@
                         <h4 class="modal-title">Add Food</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="/action_page.php">
+                        <form>
                             <div class="form-group">
                                 <label>Description:</label>
-                                <input class="form-control" placeholder="Description" id="description">
+                                <input ng-model='entryDescription' class="form-control" placeholder="Description" id="description">
                             </div>
                             <div class="form-group">
                                 <label>Amount:</label>
-                                <input class="form-control" placeholder="Amount" id="amount">
+                                <input ng-model='entryAmount' class="form-control" placeholder="Amount" id="amount">
                             </div>
                             <div class="form-group">
                                 <label>Unit:</label>
-                                <input class="form-control" placeholder="Unit" id="unit">
+                                <input ng-model='entryUnit' class="form-control" placeholder="Unit" id="unit">
                             </div>
                             <div class="form-group">
                                 <label>Calories:</label>
-                                <input class="form-control" placeholder="Calories" id="calories">
+                                <input ng-model='entryCalories' class="form-control" placeholder="Calories" id="calories">
                             </div>
-                            <button type="submit" class="btn btn-default">Add</button>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                        <button ng-click='addEntry()' type="button" class="btn btn-success" data-dismiss="modal">Add</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        //Declare a matching module (since we declared our <body> element as an Angular app).
+        var app = angular.module('app', []);
+        /*Declare a controller using .controller() on an instance of a module. Takes name of Controller and function used to build an instance of the controller. We stored the app module into variable 'app' then created a controller on it called DiaryCtrl.
+        This controller has an array that represents the diary enteries we see in HTML. When a controller is declared we do what is called dependency inject $scope. $scope is an object you can access in the HTML and in the controller. When sharing controller data to the view, use $scope. When Referencing controller data from the view, leave out $scope
+        */
+        app.controller('DiaryCtrl', function($scope){
+            $scope.enteries = [
+                {
+                    description: 'Chicken Breast',
+                    amount: 268,
+                    unit: 'g',
+                    calories: 463.64
+                },
+                {
+                    description: 'Riced Broccoli',
+                    amount: 5,
+                    unit: 'cup',
+                    calories: 175
+                },
+                {
+                    description: 'HoneyCrisp Apples',
+                    amount: 1,
+                    unit: 'Medium Apple',
+                    calories: 80
+                }
+            ]
+            
+            $scope.addEntry = function(){
+                if($scope.entryDescription != null && $scope.entryAmount != null && $scope.entryUnit != null && $scope.entryCalories != null){
+                    $scope.enteries.unshift({
+                        description: $scope.entryDescription,
+                        amount: $scope.entryAmount,
+                        unit: $scope.entryUnit,
+                        calories: $scope.entryCalories
+                    })
+                }
+                $scope.entryDescription = null;
+                $scope.entryAmount = null;
+                $scope.entryUnit = null;
+                $scope.entryCalories = null;
+            }
+        });
+    </script>
 </body>
 
 </html>

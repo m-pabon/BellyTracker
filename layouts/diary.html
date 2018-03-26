@@ -15,8 +15,8 @@
 
 
     <!--Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="../css/diary.css">
-    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" type="text/css" href="./../src/css/diary.css">
+    <link rel="stylesheet" type="text/css" href="./../src/css/global.css">
 
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
@@ -86,7 +86,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='entry in enteries'>
+                        <tr ng-repeat="entry in entries | orderBy:'-date'">
                             <td>{{ entry.description }}</td>
                             <td> {{ entry.amount }}</td>
                             <td> {{ entry.unit }}</td>
@@ -97,7 +97,7 @@
             </div>
         </div>
         <!--Add Food Modal-->
-        <div class="modal fade" ng-model='modal'id="addFoodModal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal fade" ng-model='modal' id="addFoodModal" role="dialog" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog">
                 <!-- Modal content-->
                 <div class="modal-content">
@@ -133,50 +133,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script>
-        //Declare a matching module (since we declared our <body> element as an Angular app).
-        var app = angular.module('app', []);
-        /*Declare a controller using .controller() on an instance of a module. Takes name of Controller and function used to build an instance of the controller. We stored the app module into variable 'app' then created a controller on it called DiaryCtrl.
-        This controller has an array that represents the diary enteries we see in HTML. When a controller is declared we do what is called dependency inject $scope. $scope is an object you can access in the HTML and in the controller. When sharing controller data to the view, use $scope. When Referencing controller data from the view, leave out $scope
-        */
-        app.controller('DiaryCtrl', function($scope){
-            $scope.enteries = [
-                {
-                    description: 'Chicken Breast',
-                    amount: 268,
-                    unit: 'g',
-                    calories: 463.64
-                },
-                {
-                    description: 'Riced Broccoli',
-                    amount: 5,
-                    unit: 'cup',
-                    calories: 175
-                },
-                {
-                    description: 'HoneyCrisp Apples',
-                    amount: 1,
-                    unit: 'Medium Apple',
-                    calories: 80
-                }
-            ]
-            
-            $scope.addEntry = function(){
-                if($scope.entryDescription != null && $scope.entryAmount != null && $scope.entryUnit != null && $scope.entryCalories != null){
-                    $scope.enteries.unshift({
-                        description: $scope.entryDescription,
-                        amount: $scope.entryAmount,
-                        unit: $scope.entryUnit,
-                        calories: $scope.entryCalories
-                    })
-                }
-                $scope.entryDescription = null;
-                $scope.entryAmount = null;
-                $scope.entryUnit = null;
-                $scope.entryCalories = null;
-            }
-        });
-    </script>
+    <script src='/diary/diary-logic.js'></script>
 </body>
 
 </html>

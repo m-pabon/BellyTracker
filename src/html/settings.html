@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,9 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="../css/settings.css">
-    <link rel="stylesheet" type="text/css" href="../css/global.css">
+    <link rel="stylesheet" href="/app.css">
 </head>
+
 <body>
     <!--Navigation-->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -35,210 +36,211 @@
                     <li><a href="insights.html">Insights</a></li>
                 </ul>
                 <!--User Options-->
-                 <ul class="nav navbar-nav navbar-right">
-                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="settings.html">Settings</a></li>
-                      <li><a href="#">Log Out</a></li>
-                    </ul>
-                  </li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="settings.html">Settings</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
-      </nav>
-    
+    </nav>
+
     <!--Grid Sections-->
-    <div class = "container" align="center">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <div class="row">
-      <!--Left--> 
-      <div class="col-lg-4">
-        <h3>Credential Settings</h3>
-        <br>  
-  
-  <!-- Trigger the modal with a Delete Account button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#delAcc">Delete Account</button>
+    <div class="container" align="center">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
 
-  <!-- Modal for Delete Account -->
-  <div class="modal fade" id="delAcc" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Delete Account</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-          
-          <br>
-          <br>
+        <div class="row">
+            <!--Left-->
+            <div class="col-lg-4">
+                <h3>Credential Settings</h3>
+                <br>
 
-          
- <!-- Trigger the modal with a Change Username button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#chngeUsr">Change Username</button>
+                <!-- Trigger the modal with a Delete Account button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#delAcc">Delete Account</button>
 
-  <!-- Modal for Change Username -->
-  <div class="modal fade" id="chngeUsr" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Change Username</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-          
-          <br>
-          <br>
+                <!-- Modal for Delete Account -->
+                <div class="modal fade" id="delAcc" role="dialog">
+                    <div class="modal-dialog">
 
-  
-   <!-- Trigger the modal with a Reset Password button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#rstPass">Reset Password</button>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Delete Account</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
 
-  <!-- Modal for Reset Password -->
-  <div class="modal fade" id="rstPass" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Reset Password</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-          
-            
-      </div>
-        
-      <!--Middle-->     
-      <div class="col-lg-4">
-      <br>      
-      <p><span class="glyphicon glyphicon-cog" style="font-size:250px;"></span></p>  
-          
-      </div>
-        
-      <!--Right-->     
-      <div class="col-lg-4">
-        <h3>Nutrition Settings</h3>
-        <br>  
-  
-  <!-- Trigger the modal with a Calorie Settings button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#calSet">Calorie Settings</button>
+                    </div>
+                </div>
 
-  <!-- Modal for Calorie Settings -->
-  <div class="modal fade" id="calSet" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Calorie Settings</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-          
-          <br>
-          <br>
+                <br>
+                <br>
 
-          
- <!-- Trigger the modal with a Micronutrients Settings button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#microSet">Micronutrients Settings</button>
 
-  <!-- Modal for Micronutrients Settings -->
-  <div class="modal fade" id="microSet" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Micronutrients Settings</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-          
-          <br>
-          <br>
+                <!-- Trigger the modal with a Change Username button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#chngeUsr">Change Username</button>
 
-  
-   <!-- Trigger the modal with a Macronutrients Settings button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#macroSet">Macronutrients Settings</button>
+                <!-- Modal for Change Username -->
+                <div class="modal fade" id="chngeUsr" role="dialog">
+                    <div class="modal-dialog">
 
-  <!-- Modal for Macronutrients Settings -->
-  <div class="modal fade" id="macroSet" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Macronutrients Settings</h4>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Change Username</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+
+                <!-- Trigger the modal with a Reset Password button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#rstPass">Reset Password</button>
+
+                <!-- Modal for Reset Password -->
+                <div class="modal fade" id="rstPass" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Reset Password</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!--Middle-->
+            <div class="col-lg-4">
+                <br>
+                <p><span class="glyphicon glyphicon-cog" style="font-size:250px;"></span></p>
+
+            </div>
+
+            <!--Right-->
+            <div class="col-lg-4">
+                <h3>Nutrition Settings</h3>
+                <br>
+
+                <!-- Trigger the modal with a Calorie Settings button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#calSet">Calorie Settings</button>
+
+                <!-- Modal for Calorie Settings -->
+                <div class="modal fade" id="calSet" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Calorie Settings</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+
+                <!-- Trigger the modal with a Micronutrients Settings button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#microSet">Micronutrients Settings</button>
+
+                <!-- Modal for Micronutrients Settings -->
+                <div class="modal fade" id="microSet" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Micronutrients Settings</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <br>
+                <br>
+
+
+                <!-- Trigger the modal with a Macronutrients Settings button -->
+                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#macroSet">Macronutrients Settings</button>
+
+                <!-- Modal for Macronutrients Settings -->
+                <div class="modal fade" id="macroSet" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Macronutrients Settings</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Some text in the modal.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-        
-    </div>
-        
-    </div>    
 </body>
+
 </html>

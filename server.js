@@ -9,6 +9,8 @@ app.use(bodyParser.urlencoded({
 }));
 //app.use('/', require('./controllers/landing-static'));
 app.use('/api/entries', require('./controllers/api/entries'));
+app.use('/api/sessions', require('./controllers/api/sessions'));
+app.use('/api/users', require('./controllers/api/users'));
 app.use('/', require('./controllers/static'));
 
 app.listen(3000, function () {

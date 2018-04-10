@@ -29,7 +29,7 @@
 
 </head>
 
-<body ng-app='app'>
+<body ng-app='app' ng-controller='ApplicationCtrl'>
     <!--Navigation-->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -50,7 +50,7 @@
                 </ul>
                 <!--User Options-->
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="cursor:pointer" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Account <span class="caret"></span></a>
+                    <li style="cursor:pointer" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> <p style="display:inline" ng-if='currentUser'> {{ currentUser.username }}</p> <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/#/register">Register</a></li>
                             <li><a href="/#/login">Login</a></li>

@@ -7,9 +7,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use('/', require('./controllers/landing-static'));
+//app.use('/', require('./controllers/landing-static'));
 app.use('/api/entries', require('./controllers/api/entries'));
-app.use('/diary', require('./controllers/diary-static'));
+app.use('/', require('./controllers/static'));
 
 app.listen(3000, function () {
     console.log('Server Listening on', 3000);

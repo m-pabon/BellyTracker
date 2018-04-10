@@ -3,9 +3,10 @@ var router = express.Router();
 var path = require('path');
 
 router.use(express.static(__dirname + '/../assets'));
+router.use(express.static(__dirname + '/../templates'));
 
-router.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '../layouts', 'diary.html'));    
+router.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname, '../layouts', 'app.html'));
 });
 
 module.exports = router;

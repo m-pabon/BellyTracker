@@ -14,7 +14,8 @@ angular.module('app')
                     description: $scope.entryDescription,
                     amount: $scope.entryAmount,
                     unit: $scope.entryUnit,
-                    calories: $scope.entryCalories
+                    calories: $scope.entryCalories,
+                    username: $scope.currentUser.username
                 }).then(function (entry) {
                     $scope.entries.unshift(entry.data);
                     $scope.entryDescription = null;

@@ -7,6 +7,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(require('./auth'));
 //app.use('/', require('./controllers/landing-static'));
 app.use('/api/entries', require('./controllers/api/entries'));
 app.use('/api/sessions', require('./controllers/api/sessions'));

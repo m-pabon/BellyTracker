@@ -4,7 +4,6 @@ angular.module('app')
             UserSvc.login(username, password)
                 .then(function (response) {
                     console.log(response.username);
-
                     $scope.$emit('login', response);
                 });
         }

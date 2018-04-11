@@ -6,11 +6,11 @@ var ngAnnotate = require('gulp-ng-annotate');
 
 //Build Diary Assets
 gulp.task('diary-js', function () {
-    gulp.src(['ng/module.js', 'ng/diary/**/*.js', 'ng/routes.js'])
+    gulp.src(['ng/module.js', 'ng/diary/**/*.js', 'ng/routes.js', 'ng/**/*.js', 'ng/*.js', 'ng/login.ctrl.js', 'ng/user.svc.js', 'ng/register.ctrl.js'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('assets'));
 });
@@ -29,5 +29,5 @@ gulp.task('landing-js', function () {
 */
 
 gulp.task('watch:js', ['diary-js'], function () {
-    gulp.watch(['ng/**/*,js', 'ng/module.js', 'ng/routes.js'], ['diary-js']);
+    gulp.watch(['ng/**/*,js', 'ng/module.js', 'ng/routes.js', 'ng/**/*.js', 'ng/*.js', 'ng/login.ctrl.js', 'ng/user.svc.js', 'ng/register.ctrl.js'], ['diary-js']);
 });

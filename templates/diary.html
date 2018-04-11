@@ -1,0 +1,85 @@
+<!--Diary-->
+<div class="row diary-margins">
+    <!--Diary Controls-->
+    <div class="col-md-2">
+        <form>
+            <div class="input-group" style="padding-top: 10px;">
+                <span id="calendar" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input id="datepicker" style="cursor: pointer;" type="text" class="form-control">
+            </div>
+        </form>
+        <button type="button" class="btn btn-default button-margins" data-toggle="modal" data-target="#addFoodModal">Add Food</button>
+    </div>
+    <!--Diary Data-->
+    <div class="col-md-10 container">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="entry in entries | orderBy:'-date'">
+                        <td>{{ entry.description }}</td>
+                        <td> {{ entry.amount }}</td>
+                        <td> {{ entry.unit }}</td>
+                        <td> {{ entry.calories }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--Add Food Modal-->
+    <div class="modal fade" ng-model='modal' id="addFoodModal" role="dialog" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Food</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Description:</label>
+                            <input ng-model='entryDescription' class="form-control" placeholder="Description" id="description">
+                        </div>
+                        <div class="form-group">
+                            <label>Amount:</label>
+                            <input ng-model='entryAmount' class="form-control" placeholder="Amount" id="amount">
+                        </div>
+                        <div class="form-group">
+                            <label>Unit:</label>
+                            <input ng-model='entryUnit' class="form-control" placeholder="Unit" id="unit">
+                        </div>
+                        <div class="form-group">
+                            <label>Calories:</label>
+                            <input ng-model='entryCalories' class="form-control" placeholder="Calories" id="calories">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button ng-click='addEntry()' type="button" class="btn btn-success" data-dismiss="modal">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        var currentDate = new Date();
+        $('#datepicker').datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            dateFormat: 'dd/mm/yy'
+        });
+        $("#datepicker").datepicker("setDate", currentDate);
+    });
+
+</script>

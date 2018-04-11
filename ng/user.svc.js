@@ -19,7 +19,7 @@ angular.module('app')
                 password: password
             }).then(function (response) {
                 svc.token = response.data
-                //$http.defaults.headers.common['X-Auth'] = response.data
+                $http.defaults.headers.common['X-Auth'] = response.data
                 console.log(response.data);
                 return svc.getUser()
             })

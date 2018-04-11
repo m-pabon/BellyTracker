@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
         unit: req.body.unit,
         calories: req.body.calories
     });
-    entry.username = req.auth.username;
+    entry.username = req.body.username;
     entry.save(function (err, entry) {
         if (err) {
             return next(err);

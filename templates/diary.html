@@ -69,3 +69,17 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function() {
+        var currentDate = new Date();
+        $('#datepicker').datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            dateFormat: 'dd/mm/yy'
+        });
+        $("#datepicker").datepicker("setDate", currentDate);
+    });
+
+</script>

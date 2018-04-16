@@ -1,7 +1,7 @@
 angular.module('app')
     .controller('DiaryCtrl', function ($scope, DiarySvc) {
         //Get Diary Entries from /api/posts enpoint
-        DiarySvc.fetch()
+        DiarySvc.fetch($scope.currentUser)
             .then(function (response) {
                 $scope.entries = response.data;
             }, function (error) {

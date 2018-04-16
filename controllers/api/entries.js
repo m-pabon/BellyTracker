@@ -2,14 +2,27 @@ var Entry = require('../../models/entry');
 var router = require('express').Router();
 
 router.get('/', function (req, res, next) {
-    Entry.find()
-        .sort('-date')
-        .exec(function (err, entries) {
-            if (err) {
-                return next(err);
-            }
-            res.json(entries);
-        });
+    if (req.headers.username) {
+        Entry.find({
+                'username': req.headers.username
+            })
+            .sort('-date')
+            .exec(function (err, entries) {
+                if (err) {
+                    return next(err);
+                }
+                res.json(entries);
+            });
+    } else {
+        Entry.find()
+            .sort('-date')
+            .exec(function (err, entries) {
+                if (err) {
+                    return next(err);
+                }
+                res.json(entries);
+            });
+    }
 });
 
 router.post('/', function (req, res, next) {

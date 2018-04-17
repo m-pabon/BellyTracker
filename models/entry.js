@@ -24,6 +24,11 @@ var Entry = db.model('Entry', {
     username: {
         type: String,
         required: true
+    },
+    tod: {
+        type: String,
+        required: true,
+        default: 'Other'
     }
 });
 module.exports = Entry;

@@ -34,6 +34,10 @@
         </div>
     </div>
     <!--Add Food Modal-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     <div class="modal fade" ng-model='modal' id="addFoodModal" role="dialog" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog">
             <!-- Modal content-->
@@ -43,27 +47,28 @@
                     <h4 class="modal-title">Add Food</h4>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form role="form" id="newModalForm">
                         <div class="form-group">
                             <label>Description:</label>
-                            <input ng-model='entryDescription' class="form-control" placeholder="Description" id="description">
+                            <input ng-model='entryDescription' class="form-control" placeholder="Description" id="description" require/>
                         </div>
                         <div class="form-group">
                             <label>Amount:</label>
-                            <input ng-model='entryAmount' class="form-control" placeholder="Amount" id="amount">
+                            <input ng-model='entryAmount' class="form-control" placeholder="Amount" id="amount" require>
                         </div>
                         <div class="form-group">
                             <label>Unit:</label>
-                            <input ng-model='entryUnit' class="form-control" placeholder="Unit" id="unit">
+                            <input ng-model='entryUnit' class="form-control" placeholder="Unit" id="unit" require>
                         </div>
                         <div class="form-group">
                             <label>Calories:</label>
-                            <input ng-model='entryCalories' class="form-control" placeholder="Calories" id="calories">
+                            <input ng-model='entryCalories' class="form-control" placeholder="Calories" id="calories" require>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button ng-click='addEntry()' type="button" class="btn btn-success" data-dismiss="modal">Add</button>
+                    <button ng-click='addEntry()' type="submit" class="btn btn-success" id="btnSaveIt">Add</button>
+                    <button type="button" class="btn btn-default" id="btnCloseIt" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -80,6 +85,22 @@
             dateFormat: 'mm/dd/yy'
         });
         $("#datepicker").datepicker("setDate", currentDate);
+    });
+
+</script>
+
+<script>
+    $(function() {
+        $("#newModalForm").validate({
+            rules: {
+                description: {
+                    required: true
+                },
+                amount: "required",
+                unit: "required",
+                calories: "required"
+            },
+        });
     });
 
 </script>

@@ -17,6 +17,16 @@ angular.module('app')
     });
 angular.module('app')
     .controller('DiaryCtrl', function ($scope, DiarySvc) {
+        //Predicate for filtering
+        $scope.date = getCurrentDate();
+        $scope.filterDate = function (entry) {
+            var date = $scope.date;
+            console.log("Scope Date: " + date);
+            console.log("Entry Date: " + entry.date);
+            console.log("Converted Entry Date: " + ISODateToString(entry.date));
+            console.log(date == ISODateToString(entry.date));
+            return (date == ISODateToString(entry.date));
+        }
         //Get Diary Entries from /api/posts enpoint
         DiarySvc.fetch($scope.currentUser)
             .then(function (response) {
@@ -36,7 +46,7 @@ angular.module('app')
                     console.log("Scope Date: " + $scope.date);
                 } else {
                     console.log("Date String 2: " + $scope.date);
-                    $scope.date = new Date.now;
+                    $scope.date = Date.now();
                 }
                 DiarySvc.create({
                     description: $scope.entryDescription,
@@ -76,5 +86,38 @@ angular.module('app')
                 } else
                     $scope.date = dateString;
             }
+        }
+
+        function getCurrentDate() {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+
+            var yyyy = today.getFullYear();
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+            var today = mm + '/' + dd + '/' + yyyy;
+            return today;
+        }
+
+        function ISODateToString(ISODate) {
+            date = new Date(ISODate);
+            year = date.getFullYear();
+            month = date.getMonth() + 1;
+            dt = date.getDate();
+
+            if (dt < 10) {
+                dt = '0' + dt;
+            }
+            if (month < 10) {
+                month = '0' + month;
+            }
+
+            var date = month + '/' + dt + '/' + year;
+            return date;
         }
     });

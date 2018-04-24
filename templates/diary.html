@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Breakfast' }">
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Breakfast' } | filter: filterDate">
                         <td>{{ entry.description }}</td>
                         <td> {{ entry.amount }}</td>
                         <td> {{ entry.unit }}</td>
@@ -45,7 +45,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Lunch' }">
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Lunch' } | filter: filterDate">
                         <td>{{ entry.description }}</td>
                         <td> {{ entry.amount }}</td>
                         <td> {{ entry.unit }}</td>
@@ -66,7 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Dinner' }">
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Dinner' } | filter: filterDate">
                         <td>{{ entry.description }}</td>
                         <td> {{ entry.amount }}</td>
                         <td> {{ entry.unit }}</td>
@@ -87,7 +87,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Other' }">
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Other' } | filter: filterDate">
                         <td>{{ entry.description }}</td>
                         <td> {{ entry.amount }}</td>
                         <td> {{ entry.unit }}</td>

@@ -21,10 +21,10 @@ angular.module('app')
         $scope.date = getCurrentDate();
         $scope.filterDate = function (entry) {
             var date = $scope.date;
-            console.log("Scope Date: " + date);
-            console.log("Entry Date: " + entry.date);
-            console.log("Converted Entry Date: " + ISODateToString(entry.date));
-            console.log(date == ISODateToString(entry.date));
+            //console.log("Scope Date: " + date);
+            //console.log("Entry Date: " + entry.date);
+            //console.log("Converted Entry Date: " + ISODateToString(entry.date));
+            //console.log(date == ISODateToString(entry.date));
             return (date == ISODateToString(entry.date));
         }
         //Get Diary Entries from /api/posts enpoint

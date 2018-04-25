@@ -24,4 +24,20 @@ angular.module('app')
             console.log(entry);
             return $http.post('/api/entries', entry);
         }
+        this.nutrition = function (query) {
+            console.log("Query: " + query.queryBody);
+            var req = {
+                method: 'POST',
+                url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-app-id': '562c28c5',
+                    'x-app-key': 'eb369ef589737d49e03ed81c5722734f'
+                },
+                data: {
+                    'query': query.queryBody
+                }
+            }
+            return $http(req);
+        }
     });

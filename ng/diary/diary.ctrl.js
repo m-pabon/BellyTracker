@@ -21,10 +21,6 @@ angular.module('app')
         $scope.date = getCurrentDate();
         $scope.filterDate = function (entry) {
             var date = $scope.date;
-            //console.log("Scope Date: " + date);
-            //console.log("Entry Date: " + entry.date);
-            //console.log("Converted Entry Date: " + ISODateToString(entry.date));
-            //console.log(date == ISODateToString(entry.date));
             return (date == ISODateToString(entry.date));
         }
         //Get Diary Entries from /api/posts enpoint
@@ -48,15 +44,42 @@ angular.module('app')
                     console.log("Date String 2: " + $scope.date);
                     $scope.date = Date.now();
                 }
-                DiarySvc.create({
-                    description: $scope.entryDescription,
-                    amount: $scope.entryAmount,
-                    unit: $scope.entryUnit,
-                    calories: $scope.entryCalories,
-                    date: $scope.date,
-                    username: $scope.currentUser.username,
-                    tod: $scope.tod
-                }).then(function (entry) {
+                var queryBody = $scope.entryAmount + " " + $scope.entryUnit + " " + $scope.entryDescription;
+                DiarySvc.nutrition({
+                    queryBody: queryBody
+                }).then(function (res) {
+                    $scope.nutrients = JSON.stringify(res.data.foods[0]);
+                    DiarySvc.create({
+                        description: $scope.entryDescription,
+                        amount: $scope.entryAmount,
+                        unit: $scope.entryUnit,
+                        calories: $scope.entryCalories,
+                        date: $scope.date,
+                        username: $scope.currentUser.username,
+                        tod: $scope.tod,
+                        nutrients: $scope.nutrients
+                    }).then(function (entry) {
+                        if (dateString == "") {
+                            var result = "";
+                            var d = new Date();
+                            result += (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear()
+                            $scope.date = result;
+                        } else
+                            $scope.date = dateString;
+                        $scope.entries.unshift(entry.data);
+                        $scope.entryDescription = null;
+                        $scope.entryAmount = null;
+                        $scope.entryUnit = null;
+                        $scope.entryCalories = null;
+                        $scope.tod = null;
+                    }, function (error) {
+                        console.log(error, 'can not post data');
+                    });
+                    $scope.entryDescription = null;
+                    $scope.entryAmount = null;
+                    $scope.entryUnit = null;
+                    $scope.entryCalories = null;
+                    $scope.tod = null;
                     if (dateString == "") {
                         var result = "";
                         var d = new Date();
@@ -64,27 +87,9 @@ angular.module('app')
                         $scope.date = result;
                     } else
                         $scope.date = dateString;
-                    $scope.entries.unshift(entry.data);
-                    $scope.entryDescription = null;
-                    $scope.entryAmount = null;
-                    $scope.entryUnit = null;
-                    $scope.entryCalories = null;
-                    $scope.tod = null;
                 }, function (error) {
-                    console.log(error, 'can not post data');
+                    console.log(error, 'can not post data to nutrionix');
                 });
-                $scope.entryDescription = null;
-                $scope.entryAmount = null;
-                $scope.entryUnit = null;
-                $scope.entryCalories = null;
-                $scope.tod = null;
-                if (dateString == "") {
-                    var result = "";
-                    var d = new Date();
-                    result += (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear()
-                    $scope.date = result;
-                } else
-                    $scope.date = dateString;
             }
         }
 

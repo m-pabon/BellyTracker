@@ -29,6 +29,10 @@ var Entry = db.model('Entry', {
         type: String,
         required: true,
         default: 'Other'
+    },
+    nutrients: {
+        type: String,
+        required: true
     }
 });
 module.exports = Entry;

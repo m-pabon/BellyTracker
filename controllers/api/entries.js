@@ -33,7 +33,8 @@ router.post('/', function (req, res, next) {
         unit: req.body.unit,
         calories: req.body.calories,
         date: req.body.date,
-        tod: req.body.tod
+        tod: req.body.tod,
+        nutrients: req.body.nutrients
     });
     entry.username = req.body.username;
     entry.save(function (err, entry) {

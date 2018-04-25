@@ -33,12 +33,14 @@ angular.module('app')
         //Post a diary entry to /api/posts endpoint
         $scope.addEntry = function () {
             var dateString = "";
-            if ($scope.entryDescription != null && $scope.entryAmount != null && $scope.entryUnit != null && $scope.entryCalories != null && $scope.tod != null) {
+            if ($scope.entryDescription != null && $scope.entryAmount != null && $scope.entryUnit != null && $scope.tod != null) {
                 if ($scope.date) {
                     var dateString = $scope.date;
                     var split = dateString.split("/");
+                    var currentTime = new Date().getTime();
                     console.log("Date String 1: " + split);
                     $scope.date = new Date(split[2], (split[0] - 1), split[1]);
+                    $scope.date.setTime(currentTime);
                     console.log("Scope Date: " + $scope.date);
                 } else {
                     console.log("Date String 2: " + $scope.date);
@@ -49,6 +51,10 @@ angular.module('app')
                     queryBody: queryBody
                 }).then(function (res) {
                     $scope.nutrients = JSON.stringify(res.data.foods[0]);
+                    if (res.data.foods[0].hasOwnProperty("nf_calories")) {
+                        $scope.entryCalories = res.data.foods[0].nf_calories;
+                    }
+                    console.log("Date point 2: " + $scope.date);
                     DiarySvc.create({
                         description: $scope.entryDescription,
                         amount: $scope.entryAmount,
@@ -80,6 +86,7 @@ angular.module('app')
                     $scope.entryUnit = null;
                     $scope.entryCalories = null;
                     $scope.tod = null;
+
                     if (dateString == "") {
                         var result = "";
                         var d = new Date();

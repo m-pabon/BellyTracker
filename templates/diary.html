@@ -5,15 +5,16 @@
         <form>
             <div class="input-group" style="padding-top: 10px;">
                 <span id="calendar" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                <input id="datepicker" style="cursor: pointer;" type="text" class="form-control">
+                <input ng-model='date' id="datepicker" style="cursor: pointer;" type="text" class="form-control" datepicker>
             </div>
         </form>
         <button type="button" class="btn btn-default button-margins" data-toggle="modal" data-target="#addFoodModal">Add Food</button>
     </div>
     <!--Diary Data-->
     <div class="col-md-10 container">
+        <h1>Breakfast</h1>
         <div class="table-responsive">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Description</th>
@@ -23,7 +24,70 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="entry in entries | orderBy:'-date'">
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Breakfast' } | filter: filterDate">
+                        <td>{{ entry.description }}</td>
+                        <td> {{ entry.amount }}</td>
+                        <td> {{ entry.unit }}</td>
+                        <td> {{ entry.calories }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h1>Lunch</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Lunch' } | filter: filterDate">
+                        <td>{{ entry.description }}</td>
+                        <td> {{ entry.amount }}</td>
+                        <td> {{ entry.unit }}</td>
+                        <td> {{ entry.calories }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h1>Dinner</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Dinner' } | filter: filterDate">
+                        <td>{{ entry.description }}</td>
+                        <td> {{ entry.amount }}</td>
+                        <td> {{ entry.unit }}</td>
+                        <td> {{ entry.calories }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h1>Other</h1>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Unit</th>
+                        <th>Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="cursor: pointer" ng-repeat="entry in entries | orderBy:'-date' | filter:{ tod: 'Other' } | filter: filterDate">
                         <td>{{ entry.description }}</td>
                         <td> {{ entry.amount }}</td>
                         <td> {{ entry.unit }}</td>
@@ -60,6 +124,16 @@
                             <label>Calories:</label>
                             <input ng-model='entryCalories' class="form-control" placeholder="Calories" id="calories">
                         </div>
+                        <div class="form-group">
+                            <label>Time of Day:</label>
+                            <select ng-model="tod">
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">

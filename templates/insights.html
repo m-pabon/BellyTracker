@@ -1,0 +1,98 @@
+<!--Datepicker-->
+<div class="row insights-margins">
+    <div class="col-sm-12 date">
+        <form>
+            <div class="input-group" style="padding-top: 10px;">
+                <span id="calendar" class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                <input ng-model='date' id="datepicker" style="cursor: pointer;" type="text" class="form-control" datepicker>
+            </div>
+        </form>
+    </div>
+</div>
+<!--Charts-->
+<div class="row">
+    <div class="col-sm-4">
+        <canvas id="myChart1" width="400" height="400"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas id="myChart2" width="400" height="400"></canvas>
+    </div>
+    <div class="col-sm-4">
+        <canvas id="myChart3" width="400" height="400"></canvas>
+    </div>
+</div>
+<script>
+    var ctx = document.getElementById('myChart1').getContext('2d');
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+    var ctx2 = document.getElementById('myChart2').getContext('2d');
+    var chart = new Chart(ctx2, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+    var ctx3 = document.getElementById('myChart3').getContext('2d');
+    var chart = new Chart(ctx3, {
+        // The type of chart we want to create
+        type: 'line',
+
+        // The data for our dataset
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            datasets: [{
+                label: "My First dataset",
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45],
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+
+</script>
+<script>
+    $(function() {
+        var currentDate = new Date();
+        $('#datepicker').datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            dateFormat: 'mm/dd/yy'
+        });
+        $("#datepicker").datepicker("setDate", currentDate);
+    });
+
+</script>

@@ -1,2 +1,2 @@
-# SeniorProject
-Repository to manage the source code/documentation for CIS4914. Spring 2018
+# BellyTracker
+A MEAN Stack Web Application used to help you meet your health and fitness goals.
